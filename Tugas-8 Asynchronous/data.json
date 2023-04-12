@@ -1,0 +1,15 @@
+[
+  {
+    "_name": "Bondra",
+    "_password": "123456",
+    "_role": "admin",
+    "_isLogin": true
+  },
+  {
+    "_name": "Iqbal",
+    "_password": "123456",
+    "_role": "trainer",
+    "_isLogin": false,
+    "_students": [{ "name": "Regy" }]
+  }
+]
