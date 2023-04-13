@@ -1,0 +1,49 @@
+1. CREATE DATABASE library
+
+2. CREATE TABLE users (
+    id int not null AUTO_INCREMENT,
+    name varchar(255),
+    email varchar(255),
+    password varchar(255),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE categories ( id int not null AUTO_INCREMENT, name varchar(255), PRIMARY KEY (id) )
+
+CREATE TABLE books ( id int NOT NULL AUTO_INCREMENT, title varchar(255) NOT NULL, summary text, stock int, category_id int, PRIMARY KEY (id), FOREIGN KEY (category_id) REFERENCES categories(id) )
+
+3. INSERT INTO users(name, email, password)
+VALUES ('John Doe', 'john@doe.com', 'john123');
+
+INSERT INTO users(name, email, password)
+VALUES ('Jane Doe', 'jane@doe.com', 'jenita123');
+
+INSERT INTO categories(name)
+VALUES ('Novel');
+INSERT INTO categories(name)
+VALUES ('Manga');
+INSERT INTO categories(name)
+VALUES ('Comic');
+INSERT INTO categories(name)
+VALUES ('History');
+INSERT INTO categories(name)
+VALUES ('IT');
+
+INSERT INTO `books` (`title`, `summary`, `stock`, `category_id`) VALUES ('One piece', 'The series focuses on Monkey D Luffy, a young man made of rubber', '50', '2');
+INSERT INTO `books` (`title`, `summary`, `stock`, `category_id`) VALUES ('Laskar Pelangi', 'Belitung is known for its richness in tin, making it one of Indonesia\'s richest islands', '25', '1');
+INSERT INTO `books` (`title`, `summary`, `stock`, `category_id`) VALUES ('Your Name', 'Mitsuha Miyamizu, a high school girl living in the fictional town of Itomori in Gifu Prefecture\'s', '15', '2');
+
+4. a. SELECT id, name, email FROM `users`
+
+b. SELECT * FROM `books` WHERE stock > 20
+SELECT * FROM `books` WHERE title like '%one%'
+
+c. SELECT b.title, b.summary, b.stock, b.category_id, c.name FROM books b JOIN categories c on b.category_id = c.id
+
+5. UPDATE `books` SET `stock` = '30' WHERE `books`.`id` = 1;
+
+
+
+
+
+
