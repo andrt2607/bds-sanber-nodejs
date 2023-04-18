@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "name": "Alif Andarta",
+      "role": "admin",
+      "password": "12345",
+      "isLogin": true
+    },
+    {
+      "name": "Rezky",
+      "role": "trainer",
+      "password": "12345",
+      "isLogin": false,
+      "students": [
+        { "name": "Budi", "class": "React" },
+        { "name": "Fikri", "class": "Flutter" }
+      ]
+    },
+    {
+      "name": "Naruto",
+      "role": "trainer",
+      "password": "12345",
+      "isLogin": false
+    },
+    {
+      "name": "Azis",
+      "role": "trainer",
+      "password": "12345",
+      "isLogin": false,
+      "students": [
+        { "name": "Sulaiman", "class": "Ruby" },
+        { "name": "Bimo", "class": "Kotlin" }
+      ]
+    }
+  ]
+}
