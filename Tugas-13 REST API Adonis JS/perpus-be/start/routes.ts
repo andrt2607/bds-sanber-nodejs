@@ -24,5 +24,6 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route.post('/buku', 'BukusController.create')
-Route.post('/kategori', 'KategorisController.create')
+// Route.post('/buku', 'BukusController.create')
+// Route.post('/kategori', 'KategorisController.create')
+Route.resource('kategori', 'KategorisController').apiOnly()
