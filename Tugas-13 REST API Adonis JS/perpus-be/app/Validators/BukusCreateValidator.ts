@@ -25,17 +25,21 @@ export default class BukusCreateValidator {
    */
   public schema = schema.create({
     judul_buku: schema.string([rules.alpha(), rules.minLength(5)]),
-    ringkasan_buku: schema.string([rules.alpha(), rules.minLength(5)]),
-    tahun_terbit: schema.date(
-      {
-        format: 'yyyy-MM-dd HH:mm:ss',
-      },[
-        rules.before(10, 'days'),
-      ]
-    ),
+    ringkasan_buku: schema.string([rules.minLength(5)]),
+    tahun_terbit: schema.string(),
+    // tahun_terbit: schema.date(
+    //   {
+    //     format: 'yyyy-MM-dd HH:mm:ss',
+    //   },[
+    //     rules.before(10, 'days'),
+    //   ]
+    // ),
     halaman: schema.number([
       rules.range(10,200),
     ]),
+    kategorises_id: schema.number([
+      rules.exists({ table: 'kategorises', column: 'id'})
+    ])
   })
 
   /**
@@ -53,7 +57,8 @@ export default class BukusCreateValidator {
     required: 'Inputan {{ field }} wajib diisi',
     'judul_buku.alpha' : 'judul harus alfabet',
     'ringkasan_buku.alpha' : 'judul harus alfabet',
-    'date.format': '{{ field }} harus dengan format {{ options.format }}',
+    // 'date.format': '{{ field }} harus dengan format {{ options.format }}',
     'halaman.range': 'Jumlah halaman harus pada range {{ options.start }} dan {{ options.stop }} halaman',
+    'kategorises_id.exists': 'id di table tidak ditemukan',
   }
 }
